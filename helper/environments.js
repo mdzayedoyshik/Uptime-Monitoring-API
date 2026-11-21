@@ -1,20 +1,30 @@
 // module scaffolding
 const environments = {};
 
+// secrets come from the process environment, never from source
+const twilio = {
+    accountSid: process.env.TWILIO_ACCOUNT_SID,
+    authToken: process.env.TWILIO_AUTH_TOKEN,
+    fromPhone: process.env.TWILIO_FROM_PHONE,
+};
+const hashKey = process.env.HASH_KEY || 'dev-only-hash-key';
+
 // staging (default) environment
 environments.staging = {
     httpPort: 3000,
     envName: 'staging',
-    hashKey: 'asg&8#gdg654asg#7',
+    hashKey,
     maxChecks: 5,
+    twilio,
 };
 
 // production environment
 environments.production = {
     httpPort: 5000,
     envName: 'production',
-    hashKey: 'asg&8#gdg654asg#7',
+    hashKey,
     maxChecks: 5,
+    twilio,
 };
 
 // determine passed environment
