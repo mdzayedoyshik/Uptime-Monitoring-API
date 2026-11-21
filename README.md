@@ -2,7 +2,7 @@
 
 A small uptime monitor written on plain Node.js, without Express or a database. Users sign up, log in for a token, and register URLs to watch. A background worker requests each URL every minute and sends an SMS through Twilio when a check goes from up to down, or back.
 
-I wrote it without a framework on purpose. I wanted to see what Express and an ORM do for you: routing, body parsing, validation and persistence are all handwritten here.
+It uses no framework on purpose. Routing, body parsing, validation and persistence are all written by hand, so every layer that Express and an ORM usually hide stays visible.
 
 ## Pieces
 
